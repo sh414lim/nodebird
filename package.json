@@ -1,0 +1,33 @@
+{
+  "name": "nodebird",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh414lim/nodebird.git"
+  },
+  "author": "marko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sh414lim/nodebird/issues"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "nunjucks": "^3.2.1",
+    "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1"
+  },
+  "homepage": "https://github.com/sh414lim/nodebird#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
