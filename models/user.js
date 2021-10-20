@@ -38,6 +38,8 @@ module.exports = class User extends Sequelize.Model {
     });
   }
 
+  //as에따라 관계메서드가 정해진다
+
   static associate(db) {
     db.User.hasMany(db.Post);
     db.User.hasMany(db.Domain) //1대 다 관계 생성

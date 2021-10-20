@@ -12,6 +12,7 @@ dotenv.config();
 const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
+const userRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -55,8 +56,9 @@ app.use (passport.initialize());
 app.use(passport.session());
 
 app.use('/',pageRouter); //pageRouter 연결
-app.use('/auth',authRouter) //authRouter
-app.use('/post',postRouter) //authRouter
+app.use('/auth',authRouter); //authRouter
+app.use('/post',postRouter); //authRouter
+app.use('/user',userRouter); //authRouter
 
 //모든 라우터 뒤에 나오는 404 미들웨어
 app.use((req,res,next)=>{

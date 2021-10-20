@@ -20,7 +20,7 @@ try{
 const upload = multer({
     storage: multer.diskStorage({
         destination(req,file,cb){
-            cb(null,'uploads/');
+            cb(null,'uploads/'); //업로드 폴더에 이미지 업로드
         },
         filename(req,file,cb){
             const ext = path.extname(file.originalname);
@@ -32,7 +32,7 @@ const upload = multer({
 
 router.post('/img',isLoggedIn,upload.single('img'),(req,res)=>{ // 멀터 미들웨어, 이미지 업로드
     console.log(req.file);
-    res.json({url:`/img/${req.file.filename}`});
+    res.json({url:`/img/${req.file.filename}`}); //요청 주소는 img 실제파일은 업로드에 들어잇다 요청과 파일주소가 다르다
 });
 
 //게시글 업로드 바디들만 업로드 하므로 None
