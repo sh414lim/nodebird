@@ -4,8 +4,8 @@ const path =require('path');
 const fs=require('fs');
 
 const {Post,Hashtag}=require('../models');
+const {Post}=require('../models');
 const{isLoggedIn}=require('./middlewares');
-const { nextTick } = require('process');
 
 const router = express.Router();
 
@@ -27,7 +27,7 @@ const upload = multer({
             cb(null,path.basename(file.originalname,ext)+Date.now()+ext); //파일에 업로드 날짜를 올린다 .
         },
     }),
-    limits :{fileSize:5*1024+1024},//용량제한 5mb
+    limits :{fileSize:5*1024*1024},//용량제한 5mb
 });
 
 router.post('/img',isLoggedIn,upload.single('img'),(req,res)=>{ // 멀터 미들웨어, 이미지 업로드
