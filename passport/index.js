@@ -11,9 +11,20 @@ module.exports = ()=>{ //req.login이 넘어온다(auth.js)
         //{id:3,'connect.sid' :s%1231412495} 세션 쿠키
 
         //유저의 정보로 다시 복구 (메모리 효율문제 해결)
-    passport.deserializeUser((id,done)=>{
-        User.findOne({where:{id}})
-        .then(user => done(null,user))
+    passport.deserializeUser((id,done)=>{ //req.user 이 여기서 생성된다
+        User.findOne({
+            where:{id},
+            include:[{
+                model:User,
+                attributes:['id','nick',],
+                as:'Followers',
+            },{
+                model:User,
+                attributes:['id','nick'],
+                as:'Followings',
+            }],
+        })
+        .then(user => done(null,user)) //req.user,req.isAuthenticated()
         .catch(err=>done(err));
     });
 
