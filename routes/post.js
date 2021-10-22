@@ -37,6 +37,7 @@ router.post('/img',isLoggedIn,upload.single('img'),(req,res)=>{ // 멀터 미들
 //게시글 업로드 바디들만 업로드 하므로 None
 router.post('/',isLoggedIn,upload.none(),async(req,res,next )=>{
     try{
+        req.body.content.match();
         const post =await Post.create({
             content:req.body.content,
             img:req.body.url,
